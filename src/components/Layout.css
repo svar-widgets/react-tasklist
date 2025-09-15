@@ -1,0 +1,18 @@
+.wx-tasks-list.wx-kro6Nsfl {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.wx-button.wx-kro6Nsfl {
+  width: 100%;
+}
+
+.wx-list.wx-kro6Nsfl {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4px;
+  overflow-y: auto;
+  flex: 1;
+}
