@@ -29,12 +29,14 @@ With Tasklist, users can easily add, edit, delete, and mark tasks as completed. 
 To use the task list, simply import the package and include the component in to .jsx file:
 
 ```jsx
-	import { TaskList, TaskListList, useTaskListState } from "@svar-ui/react-tasklist";
+	import { TaskList } from "@svar-ui/react-tasklist";
 
     function MyComponent(){
-	    const uploadURL = "http://localhost:3000/data";
-        const data = useTaskListState();
+        const data =  [
+			{ id: 7, content: 'Optimize performance', status: 1 },
+    		{ id: 8, content: 'Work with API requests', status: 0}
+		];
 
-        return (<TaskList {uploadURL} data={data} />);
+        return (<TaskList value={data} />);
     }
 ```
