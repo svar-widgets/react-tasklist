@@ -19,7 +19,7 @@
 With Tasklist, users can easily add, edit, delete, and mark tasks as completed. The component works fully on the client side and integrates smoothly with any backend or external data source (like REST APIs) to load and save tasks. It also provides flexible event handling, letting you track and respond to task additions, updates, or deletions.
 
 <div align="center">
-	
+
 <img src="https://svar.dev/images/github/github-tasklist.png" alt="SVAR React TaskList" style="width: 700px;">
 
 </div>
@@ -30,7 +30,7 @@ To use the task list, simply import the package and include the component in to 
 
 ```jsx
 	import { TaskList } from "@svar-ui/react-tasklist";
-    import "@svar-ui/react-tasklist/all.css";
+  import "@svar-ui/react-tasklist/all.css";
 
     function MyComponent(){
         const data =  [
