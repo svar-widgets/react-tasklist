@@ -30,6 +30,7 @@ To use the task list, simply import the package and include the component in to 
 
 ```jsx
 	import { TaskList } from "@svar-ui/react-tasklist";
+    import "@svar-ui/react-tasklist/all.css";
 
     function MyComponent(){
         const data =  [
