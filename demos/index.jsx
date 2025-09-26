@@ -2,13 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from './common/Index.jsx';
 
-import {
-  Globals,
-  Button,
-  Segmented,
-  Willow,
-  WillowDark,
-} from '@svar-ui/react-core';
+import { Globals, Button, Segmented, Willow, WillowDark } from '@svar-ui/react-core';
 
 import '@svar-ui/react-core/style.css';
 
@@ -19,6 +13,13 @@ const skins = [
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App publicName="Toolbar" skins={skins} productTag="toolbar" Globals={Globals} Button={Button} Segmented={Segmented} />
+    <App
+      publicName="Tasklist"
+      skins={skins}
+      productTag="tasklist"
+      Globals={Globals}
+      Button={Button}
+      Segmented={Segmented}
+    />
   </React.StrictMode>,
 );

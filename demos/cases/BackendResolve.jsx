@@ -31,9 +31,8 @@ export default function BackendResolve() {
       </div>
       <div className="wx-KFeUXzJX tasks">
         <Tasklist
-          url={url}
           value={id}
-          onData={() => url.get(id)}
+          onData={(v) => url.get(v)}
           onChange={({ action, task, id, originalValue: v }) =>
             url.path(v).save(action, task, id)
           }

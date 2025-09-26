@@ -20,14 +20,14 @@ export default function Layout(props) {
 
   function openEditor() {
     setEdit(-1);
-    setEditTask({ id: -1, content: '', state: false });
+    setEditTask({ id: -1, content: '', status: 0 });
   }
 
   function add(content) {
     const task = {
       id: tempID(),
       content,
-      state: false,
+      status: 0,
     };
 
     const next = [...data, task];

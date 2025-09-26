@@ -6,7 +6,14 @@ import { links } from '../routes';
 import { GitHubLogoIcon, LogoIcon } from '../assets/icons';
 import './Index.css';
 
-function DemoExplorerContent({ productTag, publicName, skins, Globals, Button, Segmented }) {
+function DemoExplorerContent({
+  productTag,
+  publicName,
+  skins,
+  Globals,
+  Button,
+  Segmented,
+}) {
   const navigate = useNavigate();
   const [skin, setSkin] = useState(skins[0].id);
   const [title, setTitle] = useState('');
@@ -14,7 +21,9 @@ function DemoExplorerContent({ productTag, publicName, skins, Globals, Button, S
   const [show, setShow] = useState(true);
 
   const baseLink =
-    'https://github.com/svar-widgets/react-'+productTag+'/tree/main/demos/cases/';
+    'https://github.com/svar-widgets/react-' +
+    productTag +
+    '/tree/main/demos/cases/';
 
   useEffect(() => {
     document.body.className = `wx-willow-theme`;
@@ -34,8 +43,8 @@ function DemoExplorerContent({ productTag, publicName, skins, Globals, Button, S
       const matched = links.find((a) => a[0] === targetPage);
       if (matched) {
         setTitle(matched[1]);
-        const name = matched[1] || '';
-        setGithubLink(`${baseLink}${name.replace(/\s+/g, '')}.jsx`);
+        const name = matched[3] || matched[1];
+        setGithubLink(`${baseLink}${name}.jsx`);
       }
     },
     [skin],
