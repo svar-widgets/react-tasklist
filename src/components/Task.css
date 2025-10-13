@@ -20,7 +20,7 @@
   .wx-checkbox-wrapper
   input:checked
   ~ label
-  span:first-child:before {
+  span.wx-before:first-child:before {
   background: #00d19a;
 }
 
