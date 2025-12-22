@@ -80,7 +80,7 @@ export default function Task(props) {
   return (
     <div className={`wx-OQDwWK17 wx-task${task.status ? ' wx-done' : ''}`}>
       <div className="wx-OQDwWK17 wx-checkbox-wrapper">
-        {edit === task.id ? (
+        {edit === task.id && task.id === -1 ? (
           <div className="wx-OQDwWK17 wx-icon-add">
             <i className="wx-OQDwWK17 wxi-plus"></i>
           </div>

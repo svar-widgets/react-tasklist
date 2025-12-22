@@ -28,7 +28,7 @@ function Locales() {
           onChange={({ value }) => setLang(value)}
         />
       </div>
-      <div style={{ margin: 'auto', maxWidth: '700px', marginTop: '40px' }}>
+      <div style={{ margin: '20px', maxWidth: '700px', marginTop: '40px' }}>
         {lang === 'de' ? (
           <Locale words={{ ...de, deCore }}>
             <Tasklist value={data} />

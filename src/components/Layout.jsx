@@ -96,8 +96,11 @@ export default function Layout(props) {
         remove(task.id);
       }
     } else {
-      if (content) update(task.id, content, status);
-      else remove(task.id);
+      if (content){
+        if (content !== task.content || status !== task.status) update(task.id, content, status);
+      } else {
+        remove(task.id);
+      }
       setEdit(null);
     }
   }
