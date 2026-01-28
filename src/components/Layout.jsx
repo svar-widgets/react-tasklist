@@ -96,7 +96,7 @@ export default function Layout(props) {
         remove(task.id);
       }
     } else {
-      if (content){
+      if (content) {
         if (content !== task.content || status !== task.status) update(task.id, content, status);
       } else {
         remove(task.id);
@@ -118,33 +118,35 @@ export default function Layout(props) {
   }, []);
 
   return (
-    <div className="wx-kro6Nsfl wx-tasks-list">
-      <div className="wx-kro6Nsfl wx-list" ref={listRef}>
-        {data.map((task) => (
-          <Task
-            key={task.id}
-            task={task}
-            edit={edit}
-            onUpdate={onUpdate}
-            onRemove={onRemove}
-            readonly={readonly}
-          />
-        ))}
-        {edit === -1 ? (
-          <Task
-            key={edit}
-            task={editTask}
-            edit={edit}
-            onUpdate={onUpdate}
-            onRemove={onRemove}
-          />
+    <context.fieldId.Provider value={null}>
+      <div className="wx-kro6Nsfl wx-tasks-list">
+        <div className="wx-kro6Nsfl wx-list" ref={listRef}>
+          {data.map((task) => (
+            <Task
+              key={task.id}
+              task={task}
+              edit={edit}
+              onUpdate={onUpdate}
+              onRemove={onRemove}
+              readonly={readonly}
+            />
+          ))}
+          {edit === -1 ? (
+            <Task
+              key={edit}
+              task={editTask}
+              edit={edit}
+              onUpdate={onUpdate}
+              onRemove={onRemove}
+            />
+          ) : null}
+        </div>
+        {!readonly && edit !== -1 ? (
+          <div className="wx-kro6Nsfl wx-button">
+            <Button onClick={openEditor}>{_('Add task')}</Button>
+          </div>
         ) : null}
       </div>
-      {!readonly && edit !== -1 ? (
-        <div className="wx-kro6Nsfl wx-button">
-          <Button onClick={openEditor}>{_('Add task')}</Button>
-        </div>
-      ) : null}
-    </div>
+    </context.fieldId.Provider>
   );
 }
