@@ -5,7 +5,7 @@ import './BackendUrl.css';
 
 function BackendUrl() {
   const url = useMemo(
-    () => new RestURL('https://master--svar-tasklist-go--dev.webix.io/tasks/1'),
+    () => new RestURL('https://-backend.svar.devtasklist/tasks/1'),
     [],
   );
   const value = useMemo(() => url.get(), [url]);

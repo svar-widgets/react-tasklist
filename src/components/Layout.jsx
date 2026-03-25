@@ -1,6 +1,5 @@
-import { useState, useMemo, useContext, useEffect, useRef } from 'react';
+import { useState, useMemo, useContext } from 'react';
 import { Button } from '@svar-ui/react-core';
-import { delegateClick } from '@svar-ui/lib-dom';
 import { tempID } from '@svar-ui/lib-state';
 import { context } from '@svar-ui/react-core';
 import { useWritableProp } from '@svar-ui/lib-react';
@@ -105,22 +104,14 @@ export default function Layout(props) {
     }
   }
 
-  const handlers = useRef({});
-  handlers.current.dblclick = (id) => {
-    if (!props.readonly) setEdit(id);
-  };
-
-  const listRef = useRef(null);
-  useEffect(() => {
-    delegateClick(listRef.current, {
-      dblclick: (id) => handlers.current.dblclick(id),
-    });
-  }, []);
+  function onEdit(id) {
+    if (!readonly) setEdit(id);
+  }
 
   return (
     <context.fieldId.Provider value={null}>
       <div className="wx-kro6Nsfl wx-tasks-list">
-        <div className="wx-kro6Nsfl wx-list" ref={listRef}>
+        <div className="wx-kro6Nsfl wx-list">
           {data.map((task) => (
             <Task
               key={task.id}
@@ -128,6 +119,7 @@ export default function Layout(props) {
               edit={edit}
               onUpdate={onUpdate}
               onRemove={onRemove}
+              onEdit={onEdit}
               readonly={readonly}
             />
           ))}
@@ -137,7 +129,6 @@ export default function Layout(props) {
               task={editTask}
               edit={edit}
               onUpdate={onUpdate}
-              onRemove={onRemove}
             />
           ) : null}
         </div>

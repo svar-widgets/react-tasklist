@@ -5,7 +5,7 @@ import { context } from '@svar-ui/react-core';
 import './Task.css';
 
 export default function Task(props) {
-  const { task, edit, readonly, onUpdate, onRemove } = props;
+  const { task, edit, readonly, onUpdate, onRemove, onEdit } = props;
 
   const _ = useContext(context.i18n).getGroup('tasklist');
 
@@ -77,6 +77,10 @@ export default function Task(props) {
     return clickOutside(textarea, saveTask).destroy;
   }, [edit, saveTask]);
 
+  const handleEditClick = useCallback(() => {
+    onEdit(task.id);
+  }, [onEdit, task.id]);
+
   return (
     <div className={`wx-OQDwWK17 wx-task${task.status ? ' wx-done' : ''}`}>
       <div className="wx-OQDwWK17 wx-checkbox-wrapper">
@@ -99,10 +103,19 @@ export default function Task(props) {
             onInput={handleContent}
           />
         ) : (
-          <div className="wx-OQDwWK17 wx-text-wrapper" data-id={task.id}>
+          <div className="wx-OQDwWK17 wx-text-wrapper" onDoubleClick={() => onEdit(task.id)}>
             <span className="wx-OQDwWK17 wx-text">{task.content}</span>
           </div>
         )}
+      </div>
+
+      <div className="wx-OQDwWK17 wx-icon-edit">
+        {!readonly && edit !== task.id ? (
+          <i
+            className="wx-OQDwWK17 wxi-edit"
+            onClick={handleEditClick}
+          ></i>
+        ) : null}
       </div>
 
       <div className="wx-OQDwWK17 wx-icon-close">
