@@ -5,7 +5,7 @@ import './BackendUrl.css';
 
 function BackendUrl() {
   const url = useMemo(
-    () => new RestURL('https://-backend.svar.devtasklist/tasks/1'),
+    () => new RestURL('https://tasklist-backend.svar.dev/tasks/1'),
     [],
   );
   const value = useMemo(() => url.get(), [url]);

@@ -6,7 +6,7 @@ import './BackendResolve.css';
 
 export default function BackendResolve() {
   const url = useMemo(
-    () => new RestURL('https://-backend.svar.devtasklist/tasks'),
+    () => new RestURL('https://tasklist-backend.svar.dev/tasks'),
     [],
   );
 
