@@ -1,3 +1,7 @@
+## 2.6.0
+
+- Using React Core v2.6.0
+
 ## 2.5.1
 
 - Using React Core v2.5.1
