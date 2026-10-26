@@ -30,11 +30,11 @@ function Locales() {
       </div>
       <div style={{ margin: '20px', maxWidth: '700px', marginTop: '40px' }}>
         {lang === 'de' ? (
-          <Locale words={{ ...de, deCore }}>
+          <Locale words={{ ...de, ...deCore }}>
             <Tasklist value={data} />
           </Locale>
         ) : lang === 'cn' ? (
-          <Locale words={{ ...cn, cnCore }}>
+          <Locale words={{ ...cn, ...cnCore }}>
             <Tasklist value={data} />
           </Locale>
         ) : (

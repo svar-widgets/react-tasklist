@@ -18,10 +18,7 @@ function Tasklist(allProps) {
   }, [onData, value]);
 
   const handleOnChange = useCallback(
-    (e) => {
-      e.originalValue = value;
-      return onChange && onChange(e);
-    },
+    (e) => onChange?.({ ...e, originalValue: value }),
     [onChange, value],
   );
 

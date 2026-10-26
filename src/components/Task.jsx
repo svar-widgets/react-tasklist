@@ -78,7 +78,7 @@ export default function Task(props) {
   }, [edit, saveTask]);
 
   const handleEditClick = useCallback(() => {
-    onEdit(task.id);
+    onEdit?.(task.id);
   }, [onEdit, task.id]);
 
   return (
@@ -89,7 +89,7 @@ export default function Task(props) {
             <i className="wx-OQDwWK17 wxi-plus"></i>
           </div>
         ) : (
-          <Checkbox onChange={handleStatus} value={task.status} />
+          <Checkbox onChange={handleStatus} value={!!task.status} />
         )}
       </div>
 
@@ -103,7 +103,7 @@ export default function Task(props) {
             onInput={handleContent}
           />
         ) : (
-          <div className="wx-OQDwWK17 wx-text-wrapper" onDoubleClick={() => onEdit(task.id)}>
+          <div className="wx-OQDwWK17 wx-text-wrapper" onDoubleClick={() => onEdit?.(task.id)}>
             <span className="wx-OQDwWK17 wx-text">{task.content}</span>
           </div>
         )}
@@ -122,7 +122,7 @@ export default function Task(props) {
         {!readonly && edit !== task.id ? (
           <i
             className="wx-OQDwWK17 wxi-close"
-            onClick={() => onRemove(task.id)}
+            onClick={() => onRemove?.(task.id)}
           ></i>
         ) : null}
       </div>

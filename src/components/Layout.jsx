@@ -34,7 +34,7 @@ export default function Layout(props) {
     if (onChange) {
       const res = onChange({ value: next, task, action: 'add' });
       if (res && typeof res === 'object') {
-        if (res.then) {
+        if ('then' in res) {
           res.then((data) => {
             updateAfter(task.id, data);
           });
@@ -60,9 +60,7 @@ export default function Layout(props) {
 
     const next = data.filter((d) => d.id !== id);
     setData(next);
-    if (id !== -1) {
-      onChange && onChange({ value: next, id, action: 'delete' });
-    }
+    if (id !== -1) onChange?.({ value: next, id, action: 'delete' });
   }
 
   function update(id, content, status) {
@@ -76,7 +74,7 @@ export default function Layout(props) {
     setData(next);
     setEdit(null);
 
-    onChange && onChange({ value: next, id, action: 'update', task });
+    onChange?.({ value: next, id, action: 'update', task });
   }
 
   function onRemove(id) {
